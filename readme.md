@@ -14,7 +14,8 @@ Orignal version can be found at https://eden.mose.org.uk/gitweb/?p=dead-test.git
 
 ## Usage
 
-This program will run from a cartridge at address $A000
+The compiled binary (dead-test.a0) can be loaded to a cartridge at address $A000
+
 When powering on the program will detect if you are using PAL or NTSC and set the appropriate video modes. 
 Tests will then be run on the lower RAM, followed by video RAM.
   - Lower RAM $0000-$03FF
