@@ -24,10 +24,14 @@ If there is a fault found with any of these tests the code will display the erro
 
 Following this the following RAM is tested:
   * BLK1,2,3 RAM from expansion cartridges
-  * Main RAM address $1000-$13FF (1Kb)
-  * Main RAM address $1400-$17FF (1Kb) 
-  * Main RAM address $1800-$1BFF (1Kb) 
-  * Main RAM address $1C00-$1FFF (1Kb)
+  * 1Kb Expansion $0400-$07FF - RAM1
+  * 1Kb Expansion $0800-$0BFF - RAM2
+  * 1Kb Expansion $0C00-$0FFF - RAM1
+  * Main RAM address $1000-$13FF (1Kb)  - RAMa
+  * Main RAM address $1400-$17FF (1Kb)  - RAMb
+  * Main RAM address $1800-$1BFF (1Kb)  - RAMc
+  * Main RAM address $1C00-$1FFF (1Kb)  - RAMd
+  
   
 On each 1Kb of RAM the upper and lower nibble of data is checked, followed by address and data lines. If the test fails on the nibble then data/address lines will not be tested and the code will then move onto the next block.
 
@@ -52,9 +56,33 @@ When testing the main RAM, its broken down into 4 tests
 * Address lines 
 * Data lines
 
+On the below screenshot the lower RAM test fails and no further tests are performed.
+
+![Lower RAM test](https://github.com/StormTrooper/Vic20-dead-test/blob/master/images/fail-lower.png?raw=true)
+
+
+On the below screenshot:
+* Upper nibble from RAMa (1000-$13FF) passes
+* Lower nibble from RAMa (1000-$13FF) fails with chip reference shown
+* ROM versions are calculated with CRC and shown
+
+![RAM Fail](https://github.com/StormTrooper/Vic20-dead-test/blob/master/images/fail2.png?raw=true)
 
 
 
-I've tested my changes on VICE and various VIC 20's and it seems to work fine.  However I am not a programmer so some of the changes I have made are bound to have a few bugs in. Also my coding is sketchy at best so use at your own risk.
+On the below screenshot:
+* Upper nibble from RAMa (1000-$13FF) passes
+* Lower nibble from RAMa (1000-$13FF) fails with chip reference shown
+* Upper nibble from RAMc (1800-$1BFF) fails with chip reference shown
+* Lower nibble from RAMc (1800-$1BFF) fails with chip reference shown
+
+![RAM Fail](https://github.com/StormTrooper/Vic20-dead-test/blob/master/images/fail1.png?raw=true)
+
+On the below screenshot all tests pass.
+
+![RAM Pass](https://github.com/StormTrooper/Vic20-dead-test/blob/master/images/pass.png?raw=true)
+
+
+I've tested my changes on VICE and various VIC 20's and it seems to work fine.  However I am not a programmer so some of the changes I have made are bound to have a few bugs in. Also my coding is sketchy at best and not the most efficient so use at your own risk. 
 
 Let me know if you find any bugs, errors or have any improvements to the code.
