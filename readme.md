@@ -6,7 +6,7 @@ Code based on source code from Simon Rowe. Most of the testing routines are the 
 - Display chip information
 - Change formatting of screen
 - Loading of screen before any checks have been done
--
+
 
 Orignal version can be found at https://eden.mose.org.uk/gitweb/?p=dead-test.git;a=summary
 
